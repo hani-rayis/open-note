@@ -1,3 +1,17 @@
+Open Note
+
+A note taking web app in React.js, Cloud Firestore as a database. With a rich text editor : React Quill [https://quilljs.com/docs/modules/](https://quilljs.com/docs/modules/).
+
+---
+
+Firebase API Key located in index.js
+
+Replace API key with your own before starting the app.
+
+Add Firebase SDKs and initialize Firebase: [https://firebase.google.com/docs/web/setup](https://firebase.google.com/docs/web/setup).
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
