@@ -20,8 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.5.0"
   }
 }
