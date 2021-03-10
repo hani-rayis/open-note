@@ -82,7 +82,7 @@ class Sidebar extends Component {
                   />
                   <Divider></Divider>
                 </div>
-              );
+              )
             })}
           </List>
         </div>

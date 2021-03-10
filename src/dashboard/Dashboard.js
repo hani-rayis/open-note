@@ -121,7 +121,7 @@ class Dashboard extends Component {
       await this.setState({
         notes: [...this.state.notes, note]
       })
-      const newNoteIndex = this.state.notes.indexOf(this.state.notes.filter(_note => _note.id === newID));
+      const newNoteIndex = this.state.notes.indexOf(this.state.notes.filter(_note => _note.id === newID)[0]);
       // We use the function indexOf to find the following note which we then filter to match the id of the new ID
       this.setState({
         selectedNote: this.state.notes[newNoteIndex],
@@ -158,3 +158,4 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
+

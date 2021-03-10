@@ -12,7 +12,7 @@ const Styles = theme => ({
     boxSizing: 'border-box',
     border: 'none',
     padding: '5px',
-    fontSize: '24px',
+    fontSize: '20px',
     width: 'calc(100% - 300px)',
     backgroundColor: '#fff',
     color: 'black',
@@ -27,7 +27,7 @@ const Styles = theme => ({
     height: '10'
   },
   editorContainer: {
-    height: '100%',
+    height: '100vh',
     boxSizing: 'border-box',
   }
 });
