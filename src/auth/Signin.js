@@ -38,7 +38,7 @@ class SignIn extends React.Component {
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
       }, err => {
         this.setState({ serverError: true });
         console.log('Error logging in: ', err);
