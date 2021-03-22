@@ -2,7 +2,7 @@ Open Note
 
 A note taking web app in React.js, Cloud Firestore as a database. With a rich text editor : React Quill [https://quilljs.com/docs/modules/](https://quilljs.com/docs/modules/).
 
-View the demp app on Netlify: [https://open-note-demo.netlify.app/](https://open-note-demo.netlify.app/).
+View the demo app on Netlify: [https://open-note-demo.netlify.app/](https://open-note-demo.netlify.app/).
 
 ---
 
