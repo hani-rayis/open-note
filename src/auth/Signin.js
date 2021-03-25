@@ -98,8 +98,8 @@ class SignIn extends React.Component {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <NavLink to='/signup' variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <NavLink to="/signup" variant="body2">
+                  Don't have an account? Sign Up 
                 </NavLink>
               </Grid>
             </Grid>

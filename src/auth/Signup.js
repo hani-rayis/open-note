@@ -1,21 +1,20 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import { NavLink } from 'react-router-dom'
-import withStyles from '@material-ui/core/styles/withStyles';
-import Styles from './Styles'
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import { NavLink } from "react-router-dom";
+import withStyles from "@material-ui/core/styles/withStyles";
+import Styles from "./Styles";
 
 const firebase = require("firebase");
-require('@firebase/auth');
+require("@firebase/auth");
 
 class SignUp extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -24,52 +23,58 @@ class SignUp extends React.Component {
       passwordConfirm: null,
       firstName: null,
       lastName: null,
-      signupError: ''
+      signupError: "",
     };
   }
 
-  handleType = e => {
+  handleType = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
+      [e.target.id]: e.target.value,
+    });
+  };
 
   formIsValid = () => this.state.password === this.state.passwordConfirm;
 
   handleSubmit = (e) => {
     e.preventDefault(); // This is to prevent the automatic refreshing of the page on submit.
 
-    if(!this.formIsValid()) {
-      this.setState({ signupError: 'Passwords do not match' });
+    if (!this.formIsValid()) {
+      this.setState({ signupError: "Passwords do not match" });
       return;
     }
     console.log(this.state);
-  
+
     firebase.default
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(resp => {
-        const userObj = {
-          email: this.state.email,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          initials: this.state.firstName[0] + this.state.lastName[0]
-        };
-        firebase.default 
-          .firestore()
-          .collection('users')
-          .doc(this.state.email)
-          .set(userObj)
-          .then(() => {
-            this.props.history.push('/');
-        }, dbErr => {
-          console.log('Failed to add user to the database: ', dbErr);
-          this.setState({ signupError: 'Failed to add user' });
-        });
-    }, authErr => {
-      console.log('Failed to create user: ', authErr);
-      this.setState({ signupError: 'Failed to add user' });
-    });
+      .then(
+        (resp) => {
+          const userObj = {
+            email: this.state.email,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            initials: this.state.firstName[0] + this.state.lastName[0],
+          };
+          firebase.default
+            .firestore()
+            .collection("users")
+            .doc(this.state.email)
+            .set(userObj)
+            .then(
+              () => {
+                this.props.history.push("/");
+              },
+              (dbErr) => {
+                console.log("Failed to add user to the database: ", dbErr);
+                this.setState({ signupError: "Failed to add user" });
+              }
+            );
+        },
+        (authErr) => {
+          console.log("Failed to create user: ", authErr);
+          this.setState({ signupError: "Failed to add user" });
+        }
+      );
   };
 
   render() {
@@ -84,7 +89,11 @@ class SignUp extends React.Component {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form} noValidate onSubmit={(e) => this.handleSubmit(e)}>
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={(e) => this.handleSubmit(e)}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -151,33 +160,35 @@ class SignUp extends React.Component {
               </Grid>
             </Grid>
             <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-           >
-             Sign Up
-           </Button>
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <NavLink to='/signin' variant="body2">
+                <NavLink to="/signin" variant="body2">
                   Already have an account? Sign in
                 </NavLink>
               </Grid>
             </Grid>
           </form>
-          { 
-            this.state.signupError ? 
-            <Typography className={classes.errorText} component='h5' variant='h6'>
+          {this.state.signupError ? (
+            <Typography
+              className={classes.errorText}
+              component="h5"
+              variant="h6"
+            >
               {this.state.signupError}
-            </Typography> :
-            null
-          }
+            </Typography>
+          ) : null}
         </div>
       </Container>
     );
   }
 }
 
-export default withStyles(Styles)(SignUp)
+export default withStyles(Styles)(SignUp);
