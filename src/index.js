@@ -8,12 +8,12 @@ const firebase = require('firebase/app');
 require('firebase/firestore');
 //
 firebase.default.initializeApp({
-  apiKey: "AIzaSyCpbI7Bql8bbkr1rBapBBCjy--KXjVujqE",
-  authDomain: "noteapp-react-395a0.firebaseapp.com",
-  projectId: "noteapp-react-395a0",
-  storageBucket: "noteapp-react-395a0.appspot.com",
-  messagingSenderId: "140990018706",
-  appId: "1:140990018706:web:3a90333259a50d18f8624b",
+  apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  authDomain: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  projectId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  storageBucket: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  messagingSenderId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  appId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
 });
 
 ReactDOM.render(
